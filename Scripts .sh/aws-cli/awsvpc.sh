@@ -1,10 +1,10 @@
 # Definir variables
 NOMBRE_VPC="MiVPC"
-CIDR_VPC="10.70.0.0/16"
+CIDR_VPC="10.203.0.0/16"
 NOMBRE_SUBRED_PUBLICA="SubredPublica"
-CIDR_SUBRED_PUBLICA="10.70.1.0/24"
+CIDR_SUBRED_PUBLICA="10.203.1.0/24"
 NOMBRE_SUBRED_PRIVADA="SubredPrivada"
-CIDR_SUBRED_PRIVADA="10.70.2.0/24"
+CIDR_SUBRED_PRIVADA="10.203.2.0/24"
 DEBIAN="ami-058bd2d568351da34"
 UBUNTU="ami-0c7217cdde317cfec"
 AMAZON-LINUX="ami-0a3c3a20c09d6f377"
@@ -58,7 +58,7 @@ aws ec2 associate-route-table --subnet-id $subnetPrivadaId --route-table-id $rou
 aws ec2 run-instances \
     --image-id $DEBIAN \
     --count 1 \
-    --instance-type t2.micro \
+    --instance-type t2.medium \
     --key-name Reto2 \
     --subnet-id $subnetPublicaId \
     --associate-public-ip-address
@@ -68,7 +68,7 @@ aws ec2 run-instances \
 aws ec2 run-instances \
     --image-id $UBUNTU \
     --count 1 \
-    --instance-type t2.micro \
+    --instance-type t2.medium \
     --key-name Reto2 \
     --subnet-id $subnetPrivadaId \
     --associate-public-ip-address

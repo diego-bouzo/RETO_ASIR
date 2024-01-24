@@ -1,10 +1,11 @@
 # Definir variables
-NOMBRE_VPC="MiVPC"
+NOMBRE_VPC="Diego_VPC"
 CIDR_VPC="10.203.0.0/16"
-NOMBRE_SUBRED_PUBLICA="SubredPublica"
+NOMBRE_SUBRED_PUBLICA="SubredPublica_Diego"
 CIDR_SUBRED_PUBLICA="10.203.1.0/24"
-NOMBRE_SUBRED_PRIVADA="SubredPrivada"
+NOMBRE_SUBRED_PRIVADA="SubredPrivada_Diego"
 CIDR_SUBRED_PRIVADA="10.203.2.0/24"
+KEY_NAME="reto"
 DEBIAN="ami-058bd2d568351da34"
 UBUNTU="ami-0c7217cdde317cfec"
 AMAZON-LINUX="ami-0a3c3a20c09d6f377"
@@ -54,21 +55,20 @@ aws ec2 create-route --route-table-id $routeTablePrivadaId --destination-cidr-bl
 # Asociar tabla de rutas privada a la subred privada
 aws ec2 associate-route-table --subnet-id $subnetPrivadaId --route-table-id $routeTablePrivadaId
 
-#Lanzar instancias (Debian t2.micro) en la subred publica
+#Lanzar instancias (Debian t2.medium) en la subred publica
 aws ec2 run-instances \
     --image-id $DEBIAN \
     --count 1 \
     --instance-type t2.medium \
-    --key-name Reto2 \
+    --key-name $KEY_NAME \
     --subnet-id $subnetPublicaId \
     --associate-public-ip-address
 
-#Lanzar instancias (Ubuntu t2.micro) en la subred privada
+#Lanzar instancias (Ubuntu t2.medium) en la subred privada
 
 aws ec2 run-instances \
     --image-id $UBUNTU \
     --count 1 \
     --instance-type t2.medium \
-    --key-name Reto2 \
+    --key-name $KEY_NAME \
     --subnet-id $subnetPrivadaId \
-    --associate-public-ip-address

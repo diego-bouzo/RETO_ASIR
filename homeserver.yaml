@@ -29,7 +29,7 @@ database:
   name: psycopg2
   args:
     user: synapse_user
-    password: vagrant
+    password: synapse
     database: synapse
     host: localhost
     cp_min: 5
@@ -39,4 +39,4 @@ media_store_path: /var/lib/matrix-synapse/media
 signing_key_path: "/etc/matrix-synapse/homeserver.signing.key"
 trusted_key_servers:
   - server_name: "matrix.org"
-registration_shared_secret: vagrant
+registration_shared_secret: synapse

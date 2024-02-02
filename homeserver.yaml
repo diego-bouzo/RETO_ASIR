@@ -11,8 +11,8 @@
 # https://matrix-org.github.io/synapse/latest/usage/configuration/config_documentation.html
 #
 # This is set in /etc/matrix-synapse/conf.d/server_name.yaml for Debian installations.
-server_name: "xquintero.duckdns.org"
-public_baseurl: https://matrix.xquintero.duckdns.org
+server_name: "equipo1.si.duckdns.org"
+public_baseurl: https://equipo1.si.duckdns.org
 matrix_synapse_federation_enabled: true
 max_upload_size: 100M
 pid_file: "/var/run/matrix-synapse.pid"
